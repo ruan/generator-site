@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-cappen-site' ]; then cd .. && eval "mv $currentfolder generator-cappen-site" && cd generator-cappen-site; fi
+
