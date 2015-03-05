@@ -1,14 +1,14 @@
 {
-  "name": "generator-site",
+  "name": "ruan-generator-site",
   "version": "1.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "ruan/generator-site",
   "author": {
-    "name": "",
-    "email": "",
-    "url": ""
+    "name": "Ruan Candido",
+    "email": "ruan1808@gmail.com",
+    "url": "ruancandido.com.br"
   },
   "engines": {
     "node": ">=0.10.0"
