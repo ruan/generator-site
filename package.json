@@ -4,7 +4,7 @@
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "ruan/site",
+  "repository": "ruan/generator-site",
   "author": {
     "name": "",
     "email": "",
