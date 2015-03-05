@@ -1,10 +1,10 @@
 {
-  "name": "generator-cappen-site",
+  "name": "generator-site",
   "version": "1.0.0",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "ruancandido/generator-cappen-site",
+  "repository": "ruan/site",
   "author": {
     "name": "",
     "email": "",

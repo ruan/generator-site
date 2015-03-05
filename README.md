@@ -23,16 +23,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-cappen-site from npm, run:
+To install generator-site from npm, run:
 
 ```bash
-npm install -g generator-cappen-site
+npm install -g generator-site
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo cappen-site
+yo generator-site
 ```
 
 ### Getting To Know Yeoman
