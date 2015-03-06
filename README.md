@@ -32,7 +32,7 @@ npm install -g generator-cappen-site
 Finally, initiate the generator:
 
 ```bash
-yo site
+yo cappen-site
 ```
 
 ### Getting To Know Yeoman
