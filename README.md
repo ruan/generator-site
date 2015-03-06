@@ -1,4 +1,4 @@
-# generator-site [![Build Status](https://secure.travis-ci.org/ruancandido/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruancandido/generator-cappen-site)
+# generator-cappen-site [![Build Status](https://secure.travis-ci.org/ruancandido/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruancandido/generator-cappen-site)
 
 > [Yeoman](http://yeoman.io) generator
 
@@ -23,16 +23,16 @@ npm install -g yo
 
 Yeoman travels light. He didn't pack any generators when he moved in. You can think of a generator like a plug-in. You get to choose what type of application you wish to create, such as a Backbone application or even a Chrome extension.
 
-To install generator-site from npm, run:
+To install generator-cappen-site from npm, run:
 
 ```bash
-npm install -g generator-site
+npm install -g generator-cappen-site
 ```
 
 Finally, initiate the generator:
 
 ```bash
-yo generator-site
+yo site
 ```
 
 ### Getting To Know Yeoman

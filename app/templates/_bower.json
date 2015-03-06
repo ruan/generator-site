@@ -1,5 +1,5 @@
 {
-  "name": "testecheckout-novo",
+  "name": "<%= site_name %>",
   "private": true,
   "dependencies": {
     "modernizr": "~2.6.2",
