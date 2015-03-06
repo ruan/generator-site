@@ -1,4 +1,4 @@
-# generator-cappen-site [![Build Status](https://secure.travis-ci.org/ruancandido/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruancandido/generator-cappen-site)
+# generator-cappen-site [![Build Status](https://secure.travis-ci.org/ruan/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruan/generator-cappen-site)
 
 > [Yeoman](http://yeoman.io) generator
 
