@@ -24,6 +24,10 @@ module.exports = function(grunt) {
             },
             gruntfile: {
                 files: ['Gruntfile.js']
+            },
+            sass: {
+                files: ['<%= config.app %>/scss/{,*/}*.{scss,sass}'],
+                tasks: ['compass:app']
             }
         },
 
@@ -82,7 +86,6 @@ module.exports = function(grunt) {
                     outputStyle : 'expanded',
                     require: ['susy','rgbapng','breakpoint','animation'],
                     relativeAssets: true,
-                    watch:true,
                     environment:'development'
                 }
             },

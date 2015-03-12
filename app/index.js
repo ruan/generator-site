@@ -74,7 +74,7 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.copy("_index.php", "app/index.php");
         this.copy("_home.php", "app/paginas/home/home.php");
         this.copy("_App.php", "app/classes/App.php");
-        this.copy("_main.js", "app/scripts/main.php");
+        this.copy("_main.js", "app/scripts/main.js");
         this.copy("_home.scss", "app/scss/_home.scss");
         this.copy("_main.scss", "app/scss/main.scss");
 
