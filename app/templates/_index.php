@@ -2,6 +2,8 @@
 <?php
     require_once 'classes/App.php';
     $app = new App();
+    $param = $app->isHome();
+    $page = (count($param) > 1) ? $param[count($param)-1] : 'home';
 ?>
 <html class="no-js">
     <head>
@@ -31,9 +33,11 @@
         <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+   <header></header>
 
-    <?php $app->getPagina(); ?>
+    <section id="<?php echo $page; ?>"><?php $app->getPagina(); ?></section>
 
+    <footer></footer>
 
     <!-- process:[src]:build <?=$app->getBaseUrl()?>scripts/ -->
        <!-- build:js scripts/vendor.js -->
