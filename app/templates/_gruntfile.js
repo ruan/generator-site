@@ -16,18 +16,14 @@ module.exports = function(grunt) {
         watch: {
             bower: {
                 files: ['bower.json'],
-                tasks: ['bowerInstall:app']
+                tasks: ['wiredep:app']
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,**/}*.js'],
-                tasks: ['jshint','fileblocks:app'],
+                tasks: ['fileblocks:app'],
             },
             gruntfile: {
                 files: ['Gruntfile.js']
-            },
-            sass: {
-                files: ['<%= config.app %>/scss/{,*/}*.{scss,sass}'],
-                tasks: ['compass:app']
             }
         },
 
@@ -76,18 +72,6 @@ module.exports = function(grunt) {
             }
         },
 
-        // Make sure code styles are up to par and there are no obvious mistakes
-        jshint: {
-            options: {
-                reporter: require('jshint-stylish')
-            },
-            all: [
-                'Gruntfile.js',
-                '<%= config.app %>/scripts/{,**/}*.js',
-                '!<%= config.app %>/scripts/{,vendor/}*.js'
-            ]
-        },
-
         compass: {
             app: {
                 options: {
@@ -96,8 +80,10 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.app %>/img',
                     fontsDir: '<%= config.app %>/fonts',
                     outputStyle : 'expanded',
-                    require: ['rgbapng','breakpoint','animation'],
-                    relativeAssets: true
+                    require: ['susy','rgbapng','breakpoint','animation'],
+                    relativeAssets: true,
+                    watch:true,
+                    environment:'development'
                 }
             },
             build: {
@@ -107,14 +93,14 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.build %>/img',
                     fontsDir: '<%= config.build %>/fonts',
                     outputStyle : 'compressed',
-                    require: ['rgbapng','breakpoint','animation'],
+                    require: ['susy','rgbapng','breakpoint','animation'],
                     relativeAssets: true
                 }
             }
         },
 
         // Automatically inject Bower components into the HTML file
-        bowerInstall: {
+        wiredep: {
             app: {
                 src: [
                     '<%= config.app %>/index.php',
@@ -157,7 +143,6 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
-                report: 'min',
                 mangle: false
             }
         },
@@ -213,14 +198,13 @@ module.exports = function(grunt) {
         concurrent: {
             app: [
                 'fileblocks:app',
-                'jshint',
-                'bowerInstall:app'
+                'wiredep:app'
             ],
             build: [
                 'fileblocks:build',
                 'imagemin',
                 'copy:build',
-                'bowerInstall:build'
+                'wiredep:build'
             ]
         }
     });

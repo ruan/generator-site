@@ -1,16 +1,9 @@
 {
-  "name": "<%= site_name %>",
+  "name": "<%= id %>",
   "private": true,
   "dependencies": {
     "modernizr": "~2.6.2",
     "jquery": "~1.9.0",
-    "normalize.scss": "3.0.0-alpha.2+normalize.3.0.0",
-    "susy": "latest",
-    "angular": "~1.2.26",
-    "angular-route": "~1.2.26",
-    "angular-sanitize": "~1.2.26",
-    "angular-animate": "~1.2.26",
-    "angular-resource": "~1.2.26",
-    "greensock": "~1.14.1"
+    "normalize.scss": "3.0.0-alpha.2+normalize.3.0.0"
   }
 }

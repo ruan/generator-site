@@ -6,11 +6,10 @@ var PaginaGenerator = yeoman.generators.NamedBase.extend({
     generatePagina: function(){
         var context = {
             content: this.name,
-            id: this._.underscored(this.name).replace(/_/g,'-')
+            id: this._.slugify(this.name)
         }
 
-        var fileBase = this._.underscored(this.name);
-        fileBase = fileBase.replace(/_/g,'-');
+        var fileBase = this._.slugify(this.name);
         var phpFile = "app/paginas/" + fileBase + '/' + fileBase +".php";
         var scssFile  = "app/scss/_" + fileBase + ".scss";
 
