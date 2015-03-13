@@ -20,7 +20,7 @@ var PaginaGenerator = yeoman.generators.NamedBase.extend({
         //console.log(mainscss);
         var path = "app/scss/main.scss",
             main = this.readFileAsString(path);
-        this.write(path, main + '\n@import "'+fileBase+'";');
+        this.write(path, main + '@import "'+fileBase+'";\n');
         //this.writeFileFromString("@import" , path);
     },
 });
