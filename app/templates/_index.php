@@ -40,7 +40,7 @@
     <footer></footer>
 
     <!-- process:[src]:build <?=$app->getBaseUrl()?>scripts/ -->
-       <!-- build:js scripts/vendor.js -->
+    <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <!-- endbower -->
     <!-- endbuild -->

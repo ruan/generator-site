@@ -97,7 +97,8 @@ module.exports = function(grunt) {
                     fontsDir: '<%= config.build %>/fonts',
                     outputStyle : 'compressed',
                     require: ['susy','rgbapng'],
-                    relativeAssets: true
+                    relativeAssets: true,
+                    environment:'production'
                 }
             }
         },
