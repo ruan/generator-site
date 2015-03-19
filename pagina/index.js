@@ -16,12 +16,9 @@ var PaginaGenerator = yeoman.generators.NamedBase.extend({
         this.template("_pagina.php", phpFile, context);
         this.template("_pagina.scss", scssFile, context);
 
-        //var mainscss = this.read("_pagina.scss");
-        //console.log(mainscss);
         var path = "app/scss/main.scss",
             main = this.readFileAsString(path);
         this.write(path, main + '@import "'+fileBase+'";\n');
-        //this.writeFileFromString("@import" , path);
     },
 });
 
