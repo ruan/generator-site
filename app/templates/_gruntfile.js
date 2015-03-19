@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.app %>/img',
                     fontsDir: '<%= config.app %>/fonts',
                     outputStyle : 'expanded',
-                    require: ['susy','rgbapng','breakpoint','animation'],
+                    require: ['susy','rgbapng'],
                     relativeAssets: true,
                     environment:'development'
                 }
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.build %>/img',
                     fontsDir: '<%= config.build %>/fonts',
                     outputStyle : 'compressed',
-                    require: ['susy','rgbapng','breakpoint','animation'],
+                    require: ['susy','rgbapng'],
                     relativeAssets: true
                 }
             }
