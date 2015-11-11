@@ -186,7 +186,7 @@ module.exports = function(grunt) {
         modernizr: {
             build: {
                 devFile: 'bower_components/modernizr/modernizr.js',
-                outputFile: '<%= config.build %>/scripts/vendor/modernizr.js',
+                dest: '<%= config.build %>/scripts/vendor/modernizr.js',
                 files: {
                     src: [
                         '<%= config.build %>/scripts/{,**/}*.js',

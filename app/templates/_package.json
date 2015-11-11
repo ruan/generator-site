@@ -25,7 +25,7 @@
     "grunt-contrib-uglify": "~0.4.0",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-file-blocks": "~0.3.0",
-    "grunt-modernizr": "~0.5.2",
+    "grunt-modernizr": "*",
     "grunt-processhtml": "0.3.0",
     "grunt-usemin": "~2.1.1",
     "grunt-wiredep": "^2.0.0",

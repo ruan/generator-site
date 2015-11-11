@@ -26,6 +26,10 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
                         value: "angular-route"
                     },
                     {
+                        name: "Angular UI-Route",
+                        value: "angular-ui-router"
+                    },
+                    {
                         name: "Angular Sanitize",
                         value: "angular-sanitize"
                     },
