@@ -1,6 +1,6 @@
 {
   "name": "generator-cappen-site",
-  "version": "1.2.2",
+  "version": "1.2.4",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
