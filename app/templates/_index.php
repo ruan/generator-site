@@ -35,7 +35,7 @@
 
    <header></header>
 
-    <section id="<?php echo $page; ?>"><?php $app->getPagina(); ?></section>
+    <?php $app->getPagina(); ?>
 
     <footer></footer>
 

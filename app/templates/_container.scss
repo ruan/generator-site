@@ -1,0 +1,15 @@
+@include component(container) {
+    @include container();
+    padding: 0 30px;
+    position: relative;
+    @include option(height) {
+        height: 100%;
+    };
+    @include option(padding) {
+        padding-top: span(1);
+        padding-bottom: span(1);
+    };
+    @include breakpoint(0 450px) {
+        padding: 0 15px;
+    }
+}

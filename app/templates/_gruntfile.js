@@ -84,7 +84,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.app %>/img',
                     fontsDir: '<%= config.app %>/fonts',
                     outputStyle : 'expanded',
-                    require: ['susy','rgbapng'],
+                    require: ['susy','rgbapng','breakpoint'],
                     relativeAssets: true,
                     environment:'development'
                 }
@@ -96,7 +96,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.build %>/img',
                     fontsDir: '<%= config.build %>/fonts',
                     outputStyle : 'compressed',
-                    require: ['susy','rgbapng'],
+                    require: ['susy','rgbapng','breakpoint'],
                     relativeAssets: true,
                     environment:'production'
                 }
@@ -150,17 +150,6 @@ module.exports = function(grunt) {
                 mangle: false
             }
         },
-        // The following *-min tasks produce minified files in the dist folder
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= config.app %>/img',
-                    src: '{,**/}*.{gif,jpeg,jpg,png}',
-                    dest: '<%= config.build %>/img'
-                }]
-            }
-        },
 
         // Copies remaining files to places other tasks can use
         copy: {
@@ -171,11 +160,9 @@ module.exports = function(grunt) {
                     cwd: '<%= config.app %>',
                     dest: '<%= config.build %>',
                     src: [
-                        '*.{ico,png,jpg,gif}',
-                        '.htaccess',
-                        'img/{,**/}*.webp',
-                        '{,**/}*.{html,php}',
-                        'fonts/{,*/}*.*'
+                        '**',
+                        '!scss',
+                        '!scripts'
                     ]
                 }]
             }
@@ -206,7 +193,6 @@ module.exports = function(grunt) {
             ],
             build: [
                 'fileblocks:build',
-                'imagemin',
                 'copy:build',
                 'wiredep:build'
             ]

@@ -1,8 +1,9 @@
 $susy: (
     columns: 12,
     gutters: 1/4,
-    container: 1170px,
+    container: 1370px,
     gutter-position: inside,
     global-box-sizing: border-box
 );
-@include border-box-sizing;
+
+$breakpoint-menuMobile:0 1100px;

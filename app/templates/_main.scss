@@ -1,11 +1,24 @@
 // bower:scss
-@import "../../bower_components/normalize.scss/_normalize.scss";
 // endbower
 
 @import "compass";
 @import "compass/css3";
 @import "susy";
 @import "rgbapng";
+@import "breakpoint";
 
 @import "settings";
-@import "home";
+@import "generic";
+@import "base";
+@import "tools";
+
+// $icons-sort-by: 'name';
+// @import "icons/*.png";
+// @include all-icons-sprites;
+// $icons: sprite-map("icons/*.png",$sort-by:'name');
+
+@import "components/container";
+@import "components/table";
+@import "components/hr";
+
+@import "layout/works";

@@ -1,0 +1,13 @@
+@include component(table) {
+    display: table;
+    width: 100%;
+    height: 100%;
+    @include part(vAlign) {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+        @include option(bottom) {
+            vertical-align: bottom;
+        };
+    };
+};

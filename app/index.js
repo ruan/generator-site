@@ -70,6 +70,8 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.mkdir("app/paginas/home");
         this.mkdir("app/scripts/vendor");
         this.mkdir("app/scss");
+        this.mkdir("app/scss/components");
+        this.mkdir("app/scss/layouts");
     },
     copyMainFiles: function(){
         this.copy("_gitignore", ".gitignore");
@@ -79,8 +81,13 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.copy("_home.php", "app/paginas/home/home.php");
         this.copy("_App.php", "app/classes/App.php");
         this.copy("_main.js", "app/scripts/main.js");
-        this.copy("_home.scss", "app/scss/_home.scss");
+        this.copy("_container.scss", "app/scss/components/_container.scss");
+        this.copy("_table.scss", "app/scss/components/_table.scss");
+        this.copy("_home.scss", "app/scss/layouts/_home.scss");
+        this.copy("_base.scss", "app/scss/_base.scss");
+        this.copy("_generic.scss", "app/scss/_generic.scss");
         this.copy("_settings.scss", "app/scss/_settings.scss");
+        this.copy("_tools.scss", "app/scss/_tools.scss");
         this.copy("_main.scss", "app/scss/main.scss");
 
         var context = {
