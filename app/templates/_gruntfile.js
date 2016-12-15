@@ -1,6 +1,7 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+
     require('load-grunt-tasks')(grunt , {config: 'package'});
     require('time-grunt')(grunt);
 
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
                 tasks: ['wiredep:app']
             },
             js: {
-                files: ['<%= config.app %>/scripts/{,**/}*.js'],
+                files: ['<%= config.app %>/scripts/**/*.js'],
                 tasks: ['fileblocks:app'],
             },
             gruntfile: {
@@ -38,17 +39,24 @@ module.exports = function(grunt) {
                     'app': { src: ['scripts/vendor/*.js','scripts/models/*.js','scripts/app.js','scripts/directives/range.js','scripts/directives/*.js','scripts/services/*.js','scripts/controllers/*.js','scripts/main.js'], cwd: '<%= config.app %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true}
                 }
             },
-            build: {
+            preBuild: {
                 src: '<%= config.app %>/index.php',
                 blocks: {
                     'app': { src: ['scripts/vendor/*.js','scripts/models/*.js','scripts/app.js','scripts/directives/range.js','scripts/directives/*.js','scripts/services/*.js','scripts/controllers/*.js','scripts/main.js'], cwd: '<%= config.app %>/' , prefix: '' , rebuild:true}
                 }
-            }
+            },
+            build: {
+                src: '<%= config.build %>/index.php',
+                blocks: {
+                    'css': { src: ['styles/*.css'], cwd: '<%= config.build %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true},
+                    'js': { src: ['scripts/vendor/*.js','scripts/*.js','!scripts/main.js','scripts/main.js'], cwd: '<%= config.build %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true}
+                }
+            },
         },
 
         processhtml: {
             options:{
-                commentMarker: 'process'
+                commentMarker: 'process',
             },
             build:{
                 files: [{
@@ -84,7 +92,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.app %>/img',
                     fontsDir: '<%= config.app %>/fonts',
                     outputStyle : 'expanded',
-                    require: ['susy','rgbapng','breakpoint'],
+                    require: ['susy','rgbapng','ceaser-easing','breakpoint','font-awesome-sass'],
                     relativeAssets: true,
                     environment:'development'
                 }
@@ -96,7 +104,7 @@ module.exports = function(grunt) {
                     imagesDir: '<%= config.build %>/img',
                     fontsDir: '<%= config.build %>/fonts',
                     outputStyle : 'compressed',
-                    require: ['susy','rgbapng','breakpoint'],
+                    require: ['susy','rgbapng','ceaser-easing','breakpoint','font-awesome-sass'],
                     relativeAssets: true,
                     environment:'production'
                 }
@@ -161,8 +169,8 @@ module.exports = function(grunt) {
                     dest: '<%= config.build %>',
                     src: [
                         '**',
-                        '!scss',
-                        '!scripts'
+                        '!scss/**',
+                        '!scripts/**'
                     ]
                 }]
             }
@@ -192,8 +200,7 @@ module.exports = function(grunt) {
                 'wiredep:app'
             ],
             build: [
-                'fileblocks:build',
-                'copy:build',
+                'fileblocks:preBuild',
                 'wiredep:build'
             ]
         }
@@ -212,6 +219,7 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:build',
             'concurrent:build',
+            'copy:build',
             'compass:build',
             'useminPrepare',
             'usemin',
@@ -219,7 +227,8 @@ module.exports = function(grunt) {
             'cssmin',
             'uglify',
             'modernizr',
-            'processhtml:build'
+            'processhtml:build',
+            'fileblocks:build'
         ]);
     });
 

@@ -13,19 +13,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- process:[href]:build <?=$app->getBaseUrl()?>styles/ -->
+        <!-- fileblock:css css -->
+        <!-- endfileblock -->
+        <!-- process:remove:build -->
         <!-- build:css styles/vendor.css -->
         <!-- bower:css -->
+        
         <!-- endbower -->
         <!-- endbuild -->
-        <!-- build:css(.tmp) /styles/main.css -->
         <link rel="stylesheet" href="<?php $app->getBaseUrl()?>../.tmp/styles/main.css">
-        <!-- endbuild -->
-        <!-- /process -->
-        <!-- process:[src]:build <?=$app->getBaseUrl()?>/scripts/vendor/ -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-            <script src="<?php $app->getBaseUrl()?>../bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
         <!-- /process -->
     </head>
     <body>
@@ -39,17 +35,21 @@
 
     <footer></footer>
 
-    <!-- process:[src]:build <?=$app->getBaseUrl()?>scripts/ -->
+    <!-- process:remove:build  -->
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
+   
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
     <!-- fileblock:js app -->
-    <script src="scripts/main.js"></script>
+    
     <!-- endfileblock -->
     <!-- endbuild -->
     <!-- /process -->
+
+    <!-- fileblock:js js -->
+    <!-- endfileblock -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
