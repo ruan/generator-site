@@ -1,8 +1,8 @@
 /*global module:false*/
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
 
-    require('load-grunt-tasks')(grunt , {config: 'package'});
+    require('load-grunt-tasks')(grunt, { config: 'package' });
     require('time-grunt')(grunt);
 
     var config = {
@@ -28,7 +28,10 @@ module.exports = function(grunt) {
             },
             sourceSass: {
                 files: ['<%= config.app %>/scss/{,*/}*.{scss,sass}'],
-                tasks: ['sass:app']
+                tasks: ['sass:app'],
+                options: {
+                    livereload: true
+                }
             }
         },
 
@@ -36,29 +39,29 @@ module.exports = function(grunt) {
             app: {
                 src: '<%= config.app %>/index.php',
                 blocks: {
-                    'app': { src: ['scripts/vendor/*.js','scripts/models/*.js','scripts/app.js','scripts/directives/range.js','scripts/directives/*.js','scripts/services/*.js','scripts/controllers/*.js','scripts/main.js'], cwd: '<%= config.app %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true}
+                    'app': { src: ['scripts/vendor/*.js', 'scripts/models/*.js', 'scripts/app.js', 'scripts/directives/range.js', 'scripts/directives/*.js', 'scripts/services/*.js', 'scripts/controllers/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true }
                 }
             },
             preBuild: {
                 src: '<%= config.app %>/index.php',
                 blocks: {
-                    'app': { src: ['scripts/vendor/*.js','scripts/models/*.js','scripts/app.js','scripts/directives/range.js','scripts/directives/*.js','scripts/services/*.js','scripts/controllers/*.js','scripts/main.js'], cwd: '<%= config.app %>/' , prefix: '' , rebuild:true}
+                    'app': { src: ['scripts/vendor/*.js', 'scripts/models/*.js', 'scripts/app.js', 'scripts/directives/range.js', 'scripts/directives/*.js', 'scripts/services/*.js', 'scripts/controllers/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '', rebuild: true }
                 }
             },
             build: {
                 src: '<%= config.build %>/index.php',
                 blocks: {
-                    'css': { src: ['styles/*.css'], cwd: '<%= config.build %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true},
-                    'js': { src: ['scripts/vendor/*.js','scripts/*.js','!scripts/main.js','scripts/main.js'], cwd: '<%= config.build %>/' , prefix: '<?php $app->getBaseUrl(); ?>' , rebuild:true}
+                    'css': { src: ['styles/*.css'], cwd: '<%= config.build %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true },
+                    'js': { src: ['scripts/vendor/*.js', 'scripts/*.js', '!scripts/main.js', 'scripts/main.js'], cwd: '<%= config.build %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true }
                 }
             },
         },
 
         processhtml: {
-            options:{
+            options: {
                 commentMarker: 'process',
             },
-            build:{
+            build: {
                 files: [{
                     expand: true,
                     cwd: '<%= config.build %>/',
@@ -74,7 +77,7 @@ module.exports = function(grunt) {
             app: '.tmp/*',
             build: {
                 files: [{
-                    dot:true,
+                    dot: true,
                     src: [
                         '.tmp/*',
                         '<%= config.build %>/*',
@@ -167,6 +170,14 @@ module.exports = function(grunt) {
 
         // Copies remaining files to places other tasks can use
         copy: {
+            app: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    src: ['bower_components/font-awesome/fonts/*'],
+                    dest: '<%= config.app %>/fonts'
+                }]
+            },
             build: {
                 files: [{
                     expand: true,
@@ -217,11 +228,12 @@ module.exports = function(grunt) {
             'clean:app',
             'concurrent:app',
             'sass:app',
+            'copy:app',
             'watch'
         ]);
     });
 
-    grunt.registerTask('build', function(){
+    grunt.registerTask('build', function () {
         grunt.task.run([
             'clean:build',
             'concurrent:build',

@@ -22,6 +22,18 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
                         value: "greensock"
                     },
                     {
+                        name: "Select 2",
+                        value: "select2"
+                    },
+                    {
+                        name: "Parsley js",
+                        value: "parsleyjs"
+                    },
+                    {
+                        name: "Wow animations",
+                        value: "wow"
+                    },
+                    {
                         name: "Owl carrosel 2",
                         value: "owl-carousel2"
                     }
