@@ -21,7 +21,7 @@
         
         <!-- endbower -->
         <!-- endbuild -->
-        <link rel="stylesheet" href="<?php $app->getBaseUrl()?>../.tmp/styles/main.css">
+        <link rel="stylesheet" href="<?php $app->getBaseUrl()?>styles/main.css">
         <!-- /process -->
     </head>
     <body>

@@ -18,36 +18,8 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
                 message: 'Quais plugins você irá utilizar?',
                 choices: [
                     {
-                        name: "Angular",
-                        value: "angular",
-                    },
-                    {
-                        name: "Angular Route",
-                        value: "angular-route"
-                    },
-                    {
-                        name: "Angular UI-Route",
-                        value: "angular-ui-router"
-                    },
-                    {
-                        name: "Angular Sanitize",
-                        value: "angular-sanitize"
-                    },
-                    {
-                        name: "Angular Animate",
-                        value: "angular-animate"
-                    },
-                    {
-                        name: "Angular Resource",
-                        value: "angular-resource"
-                    },
-                    {
                         name: "Greensock JS",
                         value: "greensock"
-                    },
-                    {
-                        name: "Owl carrosel",
-                        value: "OwlCarousel"
                     },
                     {
                         name: "Owl carrosel 2",
@@ -88,6 +60,9 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.copy("_generic.scss", "app/scss/_generic.scss");
         this.copy("_settings.scss", "app/scss/_settings.scss");
         this.copy("_tools.scss", "app/scss/_tools.scss");
+        this.copy("_fonts.scss", "app/scss/_fonts.scss");
+        this.copy("_colors.scss", "app/scss/_colors.scss");
+        this.copy("_trumps.scss", "app/scss/_trumps.scss");
         this.copy("_main.scss", "app/scss/main.scss");
 
         var context = {

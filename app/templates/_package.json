@@ -4,7 +4,7 @@
   "private": true,
   "main": "Gruntfile.js",
   "scripts": {
-    "postinstall": "bower install --force && grunt app"
+    "postinstall": "bower install && grunt app"
   },
   "repository": {
     "type": "git",
@@ -16,18 +16,20 @@
     "grunt": "^1.0.1",
     "grunt-concurrent": "^2.3.1",
     "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-compass": "^1.1.1",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.1",
     "grunt-file-blocks": "^0.4.1",
     "grunt-modernizr": "^1.0.2",
     "grunt-processhtml": "^0.4.0",
     "grunt-usemin": "^3.1.1",
     "grunt-wiredep": "^3.0.1",
     "load-grunt-tasks": "^3.5.2",
+    "autoprefixer": "^6.7.7",
+    "grunt-postcss": "^0.8.0",
     "time-grunt": "^1.4.0"
   }
 }

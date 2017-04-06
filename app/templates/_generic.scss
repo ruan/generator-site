@@ -1,15 +1,5 @@
-@include border-box-sizing;
-
-$nomeDaFont  : ' ';
-
-$fonts : $nomeDaFont;
-@each $font in $fonts{
-    @include font-face($font, font-files( '#{$font}.woff' , '#{$font}.ttf' ) , '#{$font}.eot', true);
-}
-
-*{
-    font-family: $nomeDaFont;
+body{
+    font-size: 14px;
+    font-weight: 400;
     font-style: normal;
-    font-weight: normal;
-    outline: none;
 }

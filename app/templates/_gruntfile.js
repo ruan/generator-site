@@ -26,9 +26,9 @@ module.exports = function(grunt) {
             gruntfile: {
                 files: ['Gruntfile.js']
             },
-            sass: {
+            sourceSass: {
                 files: ['<%= config.app %>/scss/{,*/}*.{scss,sass}'],
-                tasks: ['compass:app']
+                tasks: ['sass:app']
             }
         },
 
@@ -84,30 +84,36 @@ module.exports = function(grunt) {
             }
         },
 
-        compass: {
+        sass: {
             app: {
+                files: {
+                    '<%= config.app %>/styles/main.css': '<%= config.app %>/scss/main.scss'
+                },
                 options: {
-                    sassDir: '<%= config.app %>/scss',
-                    cssDir: '.tmp/styles',
-                    imagesDir: '<%= config.app %>/img',
-                    fontsDir: '<%= config.app %>/fonts',
-                    outputStyle : 'expanded',
-                    require: ['susy','rgbapng','ceaser-easing','breakpoint','font-awesome-sass'],
-                    relativeAssets: true,
-                    environment:'development'
+                    sourceMap: true,
+                    outputStyle: 'expanded'
                 }
             },
             build: {
+                files: {
+                    '<%= config.app %>/styles/main.css': '<%= config.app %>/scss/main.scss'
+                },
                 options: {
-                    sassDir: '<%= config.app %>/scss',
-                    cssDir: '<%= config.build %>/styles',
-                    imagesDir: '<%= config.build %>/img',
-                    fontsDir: '<%= config.build %>/fonts',
-                    outputStyle : 'compressed',
-                    require: ['susy','rgbapng','ceaser-easing','breakpoint','font-awesome-sass'],
-                    relativeAssets: true,
-                    environment:'production'
+                    sourceMap: false,
+                    outputStyle: 'compressed'
                 }
+            }
+        },
+
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require('autoprefixer')
+                ]
+            },
+            build: {
+                src: '<%= config.app %>/styles/main.css'
             }
         },
 
@@ -210,7 +216,7 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:app',
             'concurrent:app',
-            'compass:app',
+            'sass:app',
             'watch'
         ]);
     });
@@ -219,8 +225,9 @@ module.exports = function(grunt) {
         grunt.task.run([
             'clean:build',
             'concurrent:build',
+            'sass:build',
+            'postcss:build',
             'copy:build',
-            'compass:build',
             'useminPrepare',
             'usemin',
             'concat',

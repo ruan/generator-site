@@ -1,7 +1,4 @@
 body{
-    @include breakpoint($breakpoint-menuMobile) {
-        padding-top: 70px;
-    }
 }
 
 ul{
@@ -26,9 +23,5 @@ a{
 
 
 p{
-    color: #868383;
-    // font-family: $proximaRegular;
-    font-size: 18px;
     margin: 0;
-    margin-bottom: 18px;
 }

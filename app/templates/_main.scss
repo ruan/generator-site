@@ -1,21 +1,13 @@
 // bower:scss
 // endbower
 
-@import "compass";
-@import "compass/css3";
-@import "susy";
-@import "rgbapng";
-@import "breakpoint";
-
 @import "settings";
+@import "tools";
+@import "colors";
+@import "fonts";
 @import "generic";
 @import "base";
-@import "tools";
-
-// $icons-sort-by: 'name';
-// @import "icons/*.png";
-// @include all-icons-sprites;
-// $icons: sprite-map("icons/*.png",$sort-by:'name');
+@import "trumps";
 
 @import "components/container";
 @import "components/table";
