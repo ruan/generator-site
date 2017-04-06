@@ -1,0 +1,23 @@
+@include component(assinatura) {
+    display: block;
+    width: 180px;
+    height: 37px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -90px;
+    margin-top: -18px;
+    background: url('../img/cappen.svg') center no-repeat;
+    background-size: auto 100%;
+    background-position: left top;
+    text-indent: -9999px;
+    @include breakpoint($mobile-up){
+        transition:.4s;
+        width: 86px;
+        margin-left: -43px;
+        &:hover {
+            width: 180px;
+            margin-left: -90px;
+        }
+    }
+}

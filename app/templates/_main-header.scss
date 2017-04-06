@@ -1,0 +1,31 @@
+#main-header {
+    background-color: $color-neutral-white;
+    z-index: $layer3;
+    @include breakpoint($ipad) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    @include breakpoint($mobile) {
+        padding: 10px 0;
+        #menu {
+            width: 200px;
+            height: 100%;
+            padding: 0 30px 30px;
+            position: fixed;
+            top: 60px;
+            right: -200px;
+            background-color: $color-neutral-white;
+            overflow: auto;
+            transition: .3s ease;
+            .main-menu {
+                padding: 0;
+                margin: 0 0 20px;
+            }
+            @include option(open) {
+                right: 0;
+            };
+        }
+    }
+}

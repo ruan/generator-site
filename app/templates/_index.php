@@ -25,11 +25,37 @@
         <!-- /process -->
     </head>
     <body>
-    <!--[if lt IE 10]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
 
-   <header></header>
+    <header id="main-header">
+        <div class="container">
+            <h1 class="logo">
+                <a href="javascript:;" class="logo__link"><%= site_name %></a>
+            </h1>
+            <a href="javascript:;" class="bt-menu-mobile">
+                Abrir menu
+                <span class="bt-menu-mobile__line --top"></span>
+                <span class="bt-menu-mobile__line --middle"></span>
+                <span class="bt-menu-mobile__line --bottom"></span>
+            </a>
+            <div id="menu">
+                <nav class="main-menu">
+                    <a href="javascript:;" class="main-menu__link">Link menu</a>
+                </nav>
+                <nav class="social-media">
+                    <a class="social-media__link" href="https://www.facebook.com/" aria-label="Facebook" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-media__link" href="https://www.youtube.com/" aria-label="Youtube" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                    <a class="social-media__link" href="https://www.instagram.com/" aria-label="Instagram" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="bg-menu-mobile"></div>
 
     <?php $app->getPagina(); ?>
 

@@ -1,0 +1,14 @@
+@include component(bg-menu-mobile) {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $layer2;
+    background-color: $color-neutral-black;
+    opacity: .8;
+    @include breakpoint(768px) {
+        display: none !important;
+    }
+};

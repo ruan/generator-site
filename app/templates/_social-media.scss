@@ -1,0 +1,38 @@
+@include component(social-media) {
+    text-align: center;
+    @include part(link) {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        line-height: 48px;
+        margin: 0 6px;
+        color: $color-neutral-gray;
+        display: inline-block;
+        border: 1px solid $color-neutral-gray;
+        border-radius: 50%;
+        transition: .3s;
+        &:hover {
+            border: 1px solid $color-neutral-gray;
+            background-color: $color-neutral-gray;
+            color: $color-neutral-white;
+        }
+    }
+    @include breakpoint($mobile-s) {
+        @include part(link) {
+            width: 36px;
+            height: 36px;
+            font-size: 15px;
+            line-height: 34px;
+            margin: 0 2px;
+        }
+    }
+    @include breakpoint($ipad) {
+        @include part(link) {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
+            line-height: 34px;
+            margin: 0 3px;
+        }
+    }
+}

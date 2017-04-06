@@ -1,0 +1,35 @@
+@include component(main-menu) {
+    @include part(link) {
+        display: inline-block;
+        position: relative;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 50px;
+        color: $color-neutral-gray;
+        margin: 0 13px;
+        text-transform: uppercase;
+        transition: .3s $easeDefault;
+        @include option(active) {
+            color: $color-brand-orange;
+        }
+    }
+    @include breakpoint($desktop-s){
+        @include part(link) {
+            font-size: 14px;
+            margin: 0 5px;
+        }
+    }
+    @include breakpoint($ipad){
+        @include part(link) {
+            font-size: 13px;
+            line-height: 36px;
+        }
+    }
+    @include breakpoint($mobile){
+        @include part(link) {
+            font-size: 14px;
+            display: block;
+            margin: 0;
+        }
+    }
+}

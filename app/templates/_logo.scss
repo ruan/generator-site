@@ -1,0 +1,18 @@
+@include component(logo) {
+    $w: 0;
+    $h: 0;
+    width: $w;
+    height: $h;
+    @include part(link) {
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-indent: -9999px;
+        background: url('../img/logo.png') center no-repeat;
+        background-size: 100%;
+    }
+    @include breakpoint($ipad) {
+        width: $w*.5;
+        height: $h*.5;
+    }
+}
