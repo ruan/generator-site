@@ -17,11 +17,17 @@ module.exports = function (grunt) {
         watch: {
             bower: {
                 files: ['bower.json'],
-                tasks: ['wiredep:app']
+                tasks: ['wiredep:app'],
+                options: {
+                    livereload: true
+                }
             },
             js: {
                 files: ['<%= config.app %>/scripts/**/*.js'],
                 tasks: ['fileblocks:app'],
+                options: {
+                    livereload: true
+                }
             },
             gruntfile: {
                 files: ['Gruntfile.js']
