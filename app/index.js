@@ -81,6 +81,7 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.copy("_fonts.scss", "app/scss/_fonts.scss");
         this.copy("_colors.scss", "app/scss/_colors.scss");
         this.copy("_trumps.scss", "app/scss/_trumps.scss");
+        this.copy("_components.scss", "app/scss/_components.scss");
         this.copy("_main.scss", "app/scss/main.scss");
 
         var context = {
