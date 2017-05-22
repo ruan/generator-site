@@ -3,6 +3,6 @@
 .tmp/
 build/
 node_modules/
+app/styles/
 bower_components/*/*
-!bower_components/*/bower.json
 wordpress/

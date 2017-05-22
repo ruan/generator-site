@@ -2,7 +2,7 @@
 // endbower
 
 @import "settings";
-@import "tools";
+@import "mixins";
 @import "colors";
 @import "fonts";
 @import "generic";
@@ -11,4 +11,4 @@
 
 @import "components";
 
-@import "layouts/main-header";
+@import "layouts";

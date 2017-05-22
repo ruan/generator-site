@@ -1,0 +1,66 @@
+@mixin input-file($options:()) {
+    $configuration: map-merge(( 
+        display: block,
+        width-btn: 200px,
+        height: 60px,
+        border: 1px solid #bbb,
+        border-radius: 0,
+        padding: 10px,
+        background: #fff,
+        background-btn: #1c1c1c,
+        color: #666,
+        color-btn: #fff,
+        text-transform: none,
+        color-error: #d02e2e
+    ), $options);
+
+    display: map-get($configuration, display);
+    height: map-get($configuration, height);
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    @include clearfix;
+    padding-right: map-get($configuration, width-btn);
+    @include part(field) {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+    @include part(label, button) {
+        height: 100%;
+        line-height: map-get($configuration, height);
+        text-align: center;
+    }
+    @include part(label) {
+        float: left;
+        width: 100%;
+        padding-left: map-get($configuration, padding);
+        padding-right: map-get($configuration, padding);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        border: map-get($configuration, border);
+        border-top-left-radius: map-get($configuration, border-radius);
+        border-bottom-left-radius: map-get($configuration, border-radius);
+        background-color:map-get($configuration, background);
+        color: map-get($configuration, color);
+    }
+    @include part(button) {
+        position: absolute;
+        width: map-get($configuration, width-btn);
+        top: 0;
+        right: 0;
+        border-top-right-radius: map-get($configuration, border-radius);
+        border-bottom-right-radius: map-get($configuration, border-radius);
+        background-color: map-get($configuration, background-btn);
+        color: map-get($configuration, color-btn);
+        &:hover {
+            background: darken(map-get($configuration,background-btn), 20%);
+        }
+    }
+    .parsley-error + * {
+        border-color: map-get($configuration, color-error);
+        background-color: lighten(map-get($configuration, color-error), 45%);
+        color: map-get($configuration, color-error);
+    }
+}

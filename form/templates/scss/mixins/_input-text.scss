@@ -1,0 +1,32 @@
+@mixin input-text($options: ()) {
+    $configuration: map-merge(( 
+        display: block,
+        width: 100%,
+        height: 60px, 
+        padding: 0 10px,
+        color: #666,
+        border: 1px solid #ccc,
+        border-radius: 0,
+        background: #fff,
+        text-transform: none,
+        color-error: #d02e2e
+    ), $options);
+
+    display: map-get($configuration, display);
+    width: map-get($configuration, width);
+    height: map-get($configuration, height);
+    padding: map-get($configuration, padding);
+    color: map-get($configuration, color);
+    border: map-get($configuration, border);
+    border-radius: map-get($configuration, border-radius);
+    background: map-get($configuration, background);
+    text-transform: map-get($configuration, text-transform);
+    &::placeholder {
+        color: lighten(map-get($configuration, color), 20%);
+    }
+    &.parsley-error {
+        border-color: map-get($configuration, color-error);
+        background-color: lighten(map-get($configuration, color-error), 45%);
+        color: map-get($configuration, color-error);
+    }
+}

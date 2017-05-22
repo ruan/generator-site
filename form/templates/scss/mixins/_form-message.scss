@@ -1,0 +1,28 @@
+@mixin form-message($options:()) {
+    $configuration: map-merge((
+        padding: 20px,
+        color: #fff,
+        background-success: #176c0a,
+        background-error: #e20c19
+    ), $options);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    padding: map-get($configuration, padding);
+    color: map-get($configuration, color);
+    text-align: center;
+    transform: translateY(-100%);
+    transition: .3s;
+    @include option(alert) {
+        transform: translateY(0);
+    }
+    @include option(success) {
+        background-color: map-get($configuration, background-success);
+    }
+    @include option(error) {
+        background-color: map-get($configuration, background-error);
+    }
+}

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form id="form" action="" method="post" class="form form-validate" data-parsley-trigger-after-failure="submit">
+            <div class="form__message form-message">Por favor, preencha os campos destacados abaixo.</div>
+            <div class="row">
+                <div class="col col-6">
+                    <input type="text" name="nome" class="form__text" placeholder="Nome completo" required data-parsley-errors-messages-disabled>
+                </div>
+                <div class="col col-6">
+                    <input type="text" name="cpf" class="form__text input-mask-cpf" placeholder="CPF">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-6">
+                    <input type="text" name="cep" class="form__text auto-cep" placeholder="CEP" data-endereco="#endereco" data-bairro="#bairro"
+                        data-cidade="#cidade" data-uf="#estado">
+                </div>
+                <div class="col col-6">
+                    <input type="text" id="endereco" name="endereco" class="form__text" placeholder="Endereço">
+                </div>
+                <div class="col col-6">
+                    <input type="text" name="complemento" class="form__text" placeholder="Complemento">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-4">
+                    <input type="text" id="bairro" name="bairro" class="form__text" placeholder="Bairro">
+                </div>
+                <div class="col col-4">
+                    <div class="form__select">
+                        <select class="select select-estado" id="estado" name="estado" required data-parsley-errors-messages-disabled>
+                                <option value="">Estado</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="col col-4">
+                    <div class="form__select">
+                        <select class="select select-cidade" id="cidade" name="cidade">
+                                <option value="">Cidade</option>
+                            </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-4">
+                    <input type="email" name="email" class="form__text" placeholder="E-mail">
+                </div>
+                <div class="col col-4">
+                    <input type="text" name="telefone" class="form__text input-mask-tel" placeholder="Telefone">
+                </div>
+                <div class="col col-4">
+                    <input type="text" name="datanascimento" class="form__text input-mask-data" placeholder="Data de nascimento">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-12">
+                    <textarea name="mensagem" class="form__textarea" placeholder="mensagem" required data-parsley-errors-messages-disabled></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-4">
+                    <label class="form__radio">
+                            Radio 1
+                            <input type="radio" class="form__radio__field" name="form_radio" required data-parsley-errors-messages-disabled />
+                            <span class="form__radio__indicator"></span>
+                        </label>
+                </div>
+
+                <div class="col col-4">
+                    <label class="form__radio">
+                            Radio 2
+                            <input type="radio" class="form__radio__field" name="form_radio" required data-parsley-errors-messages-disabled />
+                            <span class="form__radio__indicator"></span>
+                        </label>
+                </div>
+                <div class="col col-4">
+                    <label class="form__radio">
+                            Radio disabled
+                            <input type="radio" disabled="disabled" class="form__radio__field" name="form_radio_disabled" />
+                            <span class="form__radio__indicator"></span>
+                        </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-3">
+                    <label class="form__radio">
+                            Radio disabled checked
+                            <input type="radio" disabled="disabled" checked="checked" class="form__radio__field" name="form_radio_disabled_checked" />
+                            <span class="form__radio__indicator"></span>
+                        </label>
+                </div>
+
+                <div class="col col-3">
+                    <label class="form__checkbox">
+                           Checkbox 2
+                           <input type="checkbox" class="form__checkbox__field" name="form_checkbox" required data-parsley-errors-messages-disabled />
+                           <span class="form__checkbox__indicator"></span>
+                       </label>
+                </div>
+
+                <div class="col col-3">
+                    <label class="form__checkbox">
+                            Checkbox 2
+                            <input type="checkbox" class="form__checkbox__field" name="form_checkbox" required data-parsley-errors-messages-disabled />
+                            <span class="form__checkbox__indicator"></span>
+                        </label>
+                </div>
+
+                <div class="col col-3">
+                    <label class="form__radio">
+                            Radio disabled checked
+                            <input type="radio" disabled="disabled" checked="checked" class="form__radio__field" name="form_radio_disabled_checked" />
+                            <span class="form__radio__indicator"></span>
+                        </label>
+                </div>
+
+
+                <div class="col col-3">
+                    <label class="form__checkbox">
+                            Checkbox disabled checked
+                            <input type="checkbox" disabled="disabled" checked="checked" class="form__checkbox__field" name="form_checkbox_disabled" />
+                            <span class="form__checkbox__indicator"></span>
+                        </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-6">
+                    <label class="form__file input-file">
+                            <input class="form__file__field" type="file" accept="image/x-png,image/gif,image/jpeg" name="imagem" required data-parsley-errors-messages-disabled>
+                            <div class="form__file__label">Nenhum arquivo selecionado</div>
+                            <span class="form__file__button">Escolher arquivo</span>
+                        </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-3">
+                    <input type="submit" value="Enviar" class="form__submit">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="../../bower_components/jquery/jquery.js"></script>
+    <script src="../../bower_components/select2/dist/js/select2.js"></script>
+    <script src="../../bower_components/moment/moment.js"></script>
+    <script src="../../bower_components/jquery.maskedinput/dist/jquery.maskedinput.js"></script>
+    <script src="../../bower_components/parsleyjs/dist/parsley.js"></script>
+
+    <script src="../scripts/vendor/auto-cep.js"></script>
+    <script src="../scripts/vendor/form.js"></script>
+    <script src="../scripts/vendor/input-file.js"></script>
+    <script src="../scripts/vendor/input-mask.js"></script>
+    <script src="../scripts/vendor/parsley.custom.validators.js"></script>
+    <script src="../scripts/vendor/select-estado-cidade.js"></script>
+    <script src="../scripts/vendor/select.js"></script>
+</body>
+
+</html>

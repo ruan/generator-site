@@ -1,0 +1,63 @@
+@mixin input-radio ($options:()){
+    $configuration: map-merge( ( 
+        display: block,
+        width: 18px,
+        border-color: #010101,
+        text-transform: none,
+        color-error: #d02e2e
+    ), $options);
+
+    $size:map-get($configuration, width);
+    position: relative;
+    display: map-get($configuration, display);
+    height: $size;
+    padding-left: $size*1.5;
+    line-height: $size;
+    cursor: pointer;
+    text-transform: map-get($configuration, text-transform);
+    @include part(field) {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked {
+            & ~ *:after {
+                opacity: 1;
+            }
+        }
+        &:disabled ~ * {
+            pointer-events: none;
+            border-color: lighten(#bbb, 10%);
+            &:after {
+                background-color: #bbb;
+            }
+        }
+    }
+    @include part(indicator) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $size;
+        height: $size;
+        border: 1px solid map-get($configuration, border-color);
+        border-radius: 50%;
+        &:after {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            width: $size*0.4444444444444444;
+            height: $size*0.4444444444444444;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            background-color: map-get($configuration, border-color);
+            transform: translate(-50%, -50%);
+            transition: .25s;
+        }
+    }
+    &.parsley-error {
+        & span[class*="indicator"] {
+            border-color: map-get($configuration, color-error);
+            background-color: lighten(map-get($configuration, color-error), 45%);
+        }
+    }
+}

@@ -73,15 +73,20 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.copy("_logo.scss", "app/scss/components/_logo.scss");
         this.copy("_social-media.scss", "app/scss/components/_social-media.scss");
         this.copy("_main-menu.scss", "app/scss/components/_main-menu.scss");
+        this.copy("_letterspacing-to-px.scss", "app/scss/mixins/_letterspacing-to-px.scss");
+        this.copy("_px-to-em.scss", "app/scss/mixins/_px-to-em.scss");
+        this.copy("_clearfix.scss", "app/scss/mixins/_clearfix.scss");
+        this.copy("_row.scss", "app/scss/mixins/_row.scss");
         this.copy("_main-header.scss", "app/scss/layouts/_main-header.scss");
         this.copy("_base.scss", "app/scss/_base.scss");
         this.copy("_generic.scss", "app/scss/_generic.scss");
         this.copy("_settings.scss", "app/scss/_settings.scss");
-        this.copy("_tools.scss", "app/scss/_tools.scss");
         this.copy("_fonts.scss", "app/scss/_fonts.scss");
         this.copy("_colors.scss", "app/scss/_colors.scss");
         this.copy("_trumps.scss", "app/scss/_trumps.scss");
         this.copy("_components.scss", "app/scss/_components.scss");
+        this.copy("_mixins.scss", "app/scss/_mixins.scss");
+        this.copy("_layouts.scss", "app/scss/_layouts.scss");
         this.copy("_main.scss", "app/scss/main.scss");
 
         var context = {

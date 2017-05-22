@@ -1,0 +1,4 @@
+#form{
+    @include form((grid:12,prefix:'lg',breakpoint:1024px));
+    @include form((grid:9,prefix:'md',breakpoint:768px));
+}

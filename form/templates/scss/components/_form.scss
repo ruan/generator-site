@@ -1,0 +1,113 @@
+@include component(form) {
+    $default: (
+        font-size: 16px,
+        color: #666,
+        color-error: #d02e2e,
+        background-error: #e20c19
+    );
+    @include part(text) {
+        $options:(
+            display: block,
+            width: 100%,
+            height: 60px, 
+            padding: 0 10px,
+            color: #666,
+            border: 1px solid #ccc,
+            border-radius: 0,
+            background: #fff,
+            text-transform: none,
+            color-error: #d02e2e
+        );
+        @include input-text(map-merge($default,$options)); 
+    }
+    @include part(textarea) {
+        $options:(
+            display: block,
+            width: 100%,
+            height: 200px, 
+            padding: 10px, 
+            color: #666,
+            border: 1px solid #ccc,
+            border-radius: 0,
+            background: #fff,
+            text-transform: none,
+            color-error: #d02e2e
+        );
+        @include input-textarea(map-merge($default,$options));
+    }
+    @include part(radio) {
+        $options:(
+            display: block,
+            width: 18px,
+            border-color: #010101,
+            text-transform: none,
+            color-error: #d02e2e
+        );
+        @include input-radio(map-merge($default,$options));
+    }
+    @include part(checkbox) {
+        $options:(
+            display: block,
+            width: 18px,
+            border-color: #010101,
+            text-transform: none,
+            color-error: #d02e2e
+        );
+        @include input-checkbox(map-merge($default,$options));
+    }
+    @include part(file) {
+        $options:(
+            display: block,
+            width-btn: 200px,
+            height: 60px,
+            border: 1px solid #bbb,
+            border-radius: 0,
+            padding: 10px,
+            background: #fff,
+            background-btn: #1c1c1c,
+            color: #666,
+            color-btn: #fff,
+            text-transform: none,
+            color-error: #d02e2e
+        );
+        @include input-file(map-merge($default,$options));
+    }
+    @include part(select) {
+        $options:(
+            height:60px,
+            border-radius:0,
+            border: 1px solid #ccc,
+            background: #fff,
+            padding: 10px,
+            background-btn: url('../img/arrow-down.png') center no-repeat,
+            width-btn: 40px,
+            text-transform: none,
+            color: #666,
+            color-error: #d02e2e
+        );
+        @include select(map-merge($default,$options));
+    }
+    @include part(submit) {
+        $options:(
+            height:60px,
+            display:block,
+            color: #fff,
+            text-transform: uppercase,
+            border: 0,
+            border-radius: 0,
+            transition: .3s,
+            background: #1c1c1c
+        );
+        @include input-submit(map-merge($default,$options));
+    }
+    
+    @include part(message) {
+        $options:(
+            padding: 20px,
+            color: #fff,
+            background-success: #176c0a,
+            background-error: #e20c19
+        );
+        @include form-message(map-merge($default,$options));
+    }
+}

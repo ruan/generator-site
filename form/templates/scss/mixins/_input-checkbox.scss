@@ -1,0 +1,63 @@
+@mixin input-checkbox ($options:()){
+    $configuration: map-merge( ( 
+        display: block,
+        width: 18px,
+        border-color: #010101,
+        text-transform: none,
+        color-error: #d02e2e
+    ), $options);
+
+    $size:map-get($configuration, width);
+    position: relative;
+    display: map-get($configuration, display);
+    height: $size;
+    padding-left: $size*1.5;
+    line-height: $size;
+    cursor: pointer;
+    text-transform: map-get($configuration, text-transform);
+    @include part(field) {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        &:checked {
+            & ~ *:after {
+                opacity: 1;
+            }
+        }
+        &:disabled ~ * {
+            pointer-events: none;
+            border-color: lighten(#bbb, 10%);
+            &:after {
+                border-color: #bbb;
+            }
+        }
+    }
+    @include part(indicator) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: $size;
+        height: $size;
+        border: 1px solid map-get($configuration, border-color);
+        &:after {
+            content: "";
+            position: absolute;
+            opacity: 0;
+            top: $size*0.1111111111111111;
+            left: $size*0.3333333333333333;
+            width: $size*0.1666666666666667;
+            height: $size*0.4444444444444444;
+            box-sizing: content-box;
+            border: solid map-get($configuration, border-color);
+            border-width: 0 $size*0.1111111111111111 $size*0.1111111111111111 0;
+            transform: rotate(45deg);
+            transition: .25s;
+        }
+    }
+    &.parsley-error {
+        & span[class*="indicator"] {
+            border-color: map-get($configuration, color-error);
+            background-color: lighten(map-get($configuration, color-error), 45%);
+        }
+    }
+}

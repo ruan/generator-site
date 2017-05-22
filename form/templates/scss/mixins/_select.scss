@@ -1,0 +1,61 @@
+@mixin select ($options:()) {
+    $configuration: map-merge(( 
+        height:60px,
+        border-radius:0,
+        border: 1px solid #ccc,
+        background: #fff,
+        padding: 10px,
+        background-btn: url('../img/arrow-down.png') center no-repeat,
+        width-btn: 40px,
+        text-transform: none,
+        color: #666,
+        color-error: #d02e2e
+    ), $options);
+
+    position: relative;
+    .select2 {
+        width: 100%!important;
+        height: map-get($configuration, height)!important;
+        .select2-selection {
+            width: 100%;
+            height: 100%;
+            border: map-get($configuration, border);
+            border-radius: map-get($configuration, border-radius);
+            outline: none;
+            padding-right: map-get($configuration, width-btn);
+            background: map-get($configuration, background);
+        }
+        .select2-selection__rendered {
+            height: 100%;
+            padding-left: map-get($configuration, padding);
+            padding-right: map-get($configuration, padding);
+            line-height: map-get($configuration, height);
+            font-size: 1em;
+            text-transform: map-get($configuration, text-transform);
+            color: map-get($configuration, color);
+        }
+        .select2-selection__arrow {
+            width: map-get($configuration, width-btn);
+            height: 100%;
+            top: 0;
+            right: 0;
+            border: map-get($configuration, border);
+            background: map-get($configuration, background-btn);
+            b {
+                display: none;
+            }
+        }
+    }
+    &.parsley-error {
+        .select2 {
+            .select2-selection {
+                border-color: map-get($configuration, color-error);
+                background-color: lighten(map-get($configuration, color-error), 45%);
+            }
+            .select2-selection__arrow {
+                border-color: map-get($configuration, color-error);
+                background-color: lighten(map-get($configuration, color-error), 45%);
+            }
+        }
+    }
+}

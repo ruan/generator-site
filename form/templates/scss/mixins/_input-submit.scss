@@ -1,0 +1,25 @@
+@mixin input-submit ($options:()){
+    $configuration:(
+        height:60px,
+        display:block,
+        color: #fff,
+        text-transform: uppercase,
+        border: 0,
+        border-radius: 0,
+        transition: .3s,
+        background: #1c1c1c
+    );
+
+    display: map-get($configuration,display);
+    width: 100%;
+    height: map-get($configuration,height);
+    text-transform:  map-get($configuration,text-transform);
+    color:  map-get($configuration,color);
+    border: map-get($configuration,border);
+    border-radius: map-get($configuration, border-radius);
+    background: map-get($configuration,background);
+    transition: map-get($configuration,transition);
+    &:hover {
+        background: darken(map-get($configuration,background), 20%);
+    }
+}
