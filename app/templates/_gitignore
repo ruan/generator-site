@@ -3,6 +3,9 @@
 .tmp/
 build/
 node_modules/
+app/scss/mixins.scss
+app/scss/components.scss
+app/scss/layouts.scss
 app/styles/
 bower_components/*/*
 wordpress/

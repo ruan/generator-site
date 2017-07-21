@@ -32,7 +32,7 @@ module.exports = function (grunt) {
             },
             sourceSass: {
                 files: ['<%= config.app %>/scss/{,**/}*.{scss,sass}'],
-                tasks: ['sass:app'],
+                tasks: ['sass:app', 'sass_globbing'],
                 options: {
                     livereload: true
                 }
@@ -98,6 +98,20 @@ module.exports = function (grunt) {
                         '!<%= config.build %>/.git*'
                     ]
                 }]
+            }
+        },
+
+        sass_globbing: {
+            my_target: {
+                files: {
+                    '<%= config.app %>/scss/_mixins.scss': ['<%= config.app %>/scss/mixins/**/*.scss'],
+                    '<%= config.app %>/scss/_components.scss': ['<%= config.app %>/scss/components/**/*.scss'],
+                    '<%= config.app %>/scss/_layouts.scss': ['<%= config.app %>/scss/layouts/**/*.scss']
+                }
+            },
+            options: {
+                signature: false,
+                useSingleQuotes: false
             }
         },
 
@@ -241,6 +255,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:app',
             'concurrent:app',
+            'sass_globbing',
             'sass:app',
             'copy:app',
             'watch'
