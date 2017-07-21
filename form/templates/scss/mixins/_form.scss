@@ -14,11 +14,14 @@
             width: 100%;
             margin-bottom: gutter()*2;
             @include gutter();
-        }
-        @include breakpoint(map-get($defaults,breakpoint)){
-            @for $i from 1 through map-get($defaults,grid) {
-                .col-#{map-get($defaults,prefix)}-#{$i}{ 
-                    @include span($i);
+            @include breakpoint(map-get($defaults,breakpoint)){
+                @for $i from 1 through map-get($defaults,grid) {
+                    &.col-#{map-get($defaults,prefix)}-#{$i}{ 
+                        @include span($i);
+                        &.last{
+                            @include span($i last);
+                        }
+                    }
                 }
             }
         }
