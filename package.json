@@ -18,7 +18,8 @@
   },
   "files": [
     "app",
-    "pagina"
+    "component",
+    "form"
   ],
   "keywords": [
     "yeoman-generator"
