@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "private": true,
   "main": "Gruntfile.js",
-  "scripts": {
-    "postinstall": "bower install && grunt app"
-  },
   "repository": {
     "type": "git",
     "url": ""
