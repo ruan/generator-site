@@ -1,7 +1,5 @@
 /*global module:false*/
 module.exports = function (grunt) {
-
-
     require('load-grunt-tasks')(grunt, { config: 'package' });
     require('time-grunt')(grunt);
 
@@ -33,7 +31,7 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             sourceSass: {
-                files: ['<%= config.app %>/scss/{,*/}*.{scss,sass}'],
+                files: ['<%= config.app %>/scss/{,**/}*.{scss,sass}'],
                 tasks: ['sass:app'],
                 options: {
                     livereload: true
@@ -45,19 +43,29 @@ module.exports = function (grunt) {
             app: {
                 src: '<%= config.app %>/index.php',
                 blocks: {
-                    'app': { src: ['scripts/vendor/*.js', 'scripts/models/*.js', 'scripts/app.js', 'scripts/directives/range.js', 'scripts/directives/*.js', 'scripts/services/*.js', 'scripts/controllers/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true }
+                    'app': { src: ['scripts/vendor/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true }
                 }
             },
             preBuild: {
-                src: '<%= config.app %>/index.php',
+                src: '<%= config.build %>/index.php',
                 blocks: {
-                    'app': { src: ['scripts/vendor/*.js', 'scripts/models/*.js', 'scripts/app.js', 'scripts/directives/range.js', 'scripts/directives/*.js', 'scripts/services/*.js', 'scripts/controllers/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '', rebuild: true }
+                    'app': { src: ['scripts/vendor/*.js', 'scripts/main.js'], cwd: '<%= config.app %>/', prefix: '../<%= config.app %>/', rebuild: true }
                 }
             },
             build: {
                 src: '<%= config.build %>/index.php',
+                options: {
+                    templatesFn: {
+                        js: function (file) {
+                            return file + '?' + Math.round(Math.random() * (9999 - 1000) + 1000);
+                        },
+                        css: function (file) {
+                            return file + '?' + Math.round(Math.random() * (9999 - 1000) + 1000);
+                        }
+                    }
+                },
                 blocks: {
-                    'css': { src: ['styles/*.css'], cwd: '<%= config.build %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true },
+                    'css': { src: ['styles/*.css', '!styles/main.css', 'styles/main.css'], cwd: '<%= config.build %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true },
                     'js': { src: ['scripts/vendor/*.js', 'scripts/*.js', '!scripts/main.js', 'scripts/main.js'], cwd: '<%= config.build %>/', prefix: '<?php $app->getBaseUrl(); ?>', rebuild: true }
                 }
             },
@@ -105,7 +113,7 @@ module.exports = function (grunt) {
             },
             build: {
                 files: {
-                    '<%= config.app %>/styles/main.css': '<%= config.app %>/scss/main.scss'
+                    '<%= config.build %>/styles/main.css': '<%= config.app %>/scss/main.scss'
                 },
                 options: {
                     sourceMap: false,
@@ -122,7 +130,7 @@ module.exports = function (grunt) {
                 ]
             },
             build: {
-                src: '<%= config.app %>/styles/main.css'
+                src: '<%= config.build %>/styles/main.css'
             }
         },
 
@@ -144,8 +152,8 @@ module.exports = function (grunt) {
             },
             build: {
                 src: [
-                    '<%= config.app %>/index.php',
-                    '<%= config.app %>/scss/{,*/}*.scss'
+                    '<%= config.build %>/index.php',
+                    '<%= config.build %>/scss/{,*/}*.scss'
                 ]
             }
         },
@@ -157,7 +165,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.build %>'
             },
-            html: '<%= config.app %>/index.php'
+            html: '<%= config.build %>/index.php'
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -242,10 +250,10 @@ module.exports = function (grunt) {
     grunt.registerTask('build', function () {
         grunt.task.run([
             'clean:build',
+            'copy:build',
             'concurrent:build',
             'sass:build',
             'postcss:build',
-            'copy:build',
             'useminPrepare',
             'usemin',
             'concat',
@@ -256,5 +264,4 @@ module.exports = function (grunt) {
             'fileblocks:build'
         ]);
     });
-
 };
