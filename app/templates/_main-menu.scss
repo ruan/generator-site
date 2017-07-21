@@ -5,12 +5,12 @@
         font-size: 16px;
         font-weight: 700;
         line-height: 50px;
-        color: $color-neutral-gray;
+        color: #666;
         margin: 0 13px;
         text-transform: uppercase;
         transition: .3s $easeDefault;
         @include option(active) {
-            color: $color-brand-orange;
+            color: #ff5400;
         }
     }
     @include breakpoint($desktop-s){

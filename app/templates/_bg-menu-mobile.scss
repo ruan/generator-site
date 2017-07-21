@@ -6,7 +6,7 @@
     top: 0;
     left: 0;
     z-index: $layer2;
-    background-color: $color-neutral-black;
+    background-color: #1c1c1c;
     opacity: .8;
     @include breakpoint(768px) {
         display: none !important;

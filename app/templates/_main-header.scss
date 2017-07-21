@@ -1,5 +1,5 @@
 #main-header {
-    background-color: $color-neutral-white;
+    background-color: #fff;
     z-index: $layer3;
     @include breakpoint($ipad) {
         position: fixed;
@@ -16,7 +16,7 @@
             position: fixed;
             top: 60px;
             right: -200px;
-            background-color: $color-neutral-white;
+            background-color: #fff;
             overflow: auto;
             transition: .3s ease;
             .main-menu {

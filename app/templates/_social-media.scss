@@ -6,15 +6,15 @@
         font-size: 20px;
         line-height: 48px;
         margin: 0 6px;
-        color: $color-neutral-gray;
+        color: #666;
         display: inline-block;
-        border: 1px solid $color-neutral-gray;
+        border: 1px solid #666;
         border-radius: 50%;
         transition: .3s;
         &:hover {
-            border: 1px solid $color-neutral-gray;
-            background-color: $color-neutral-gray;
-            color: $color-neutral-white;
+            border: 1px solid #666;
+            background-color: #666;
+            color: #fff;
         }
     }
     @include breakpoint($mobile-s) {
