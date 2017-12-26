@@ -32,7 +32,7 @@ module.exports = function (grunt) {
             },
             sourceSass: {
                 files: ['<%= config.app %>/scss/{,**/}*.{scss,sass}'],
-                tasks: ['sass:app', 'sass_globbing'],
+              tasks: ['sass_globbing', 'sass:app'],
                 options: {
                     livereload: true
                 }
