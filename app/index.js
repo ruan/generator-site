@@ -10,12 +10,12 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         var prompts = [
             {
                 name: 'appName',
-                message: 'Qual é o nome do site?'
+                message: 'What is the project name?'
             },
             {
                 type: 'checkbox',
                 name: 'plugins',
-                message: 'Quais plugins você irá utilizar?',
+                message: 'What plugins will be used?',
                 choices: [
                     {
                         name: "Greensock JS",
