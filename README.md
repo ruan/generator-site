@@ -4,8 +4,11 @@
 ## Requirements:
 
 NodeJS (https://nodejs.org/)
+
 GruntJS (http://gruntjs.com/)
+
 Yeoman (http://yeoman.io/)
+
 Bower (http://bower.io/)
 
 ## Installation
@@ -33,20 +36,21 @@ yo cappen-site:form
 ```
 #### Usage
 
-Sera gerado alguns arquivos importantes:
+This will create a few important files:
 
 `
 /mockup/form.html
 `
-Nesse arquivo terá o template html funcionando que serve exemplo
+This file contains the markup html example (preview it on browser)
 
 `
 /scss/components/form.scss
 `
-Esse arquivo é o responsavel pelo style do form
+This file is the style of form component
 
 `
 /scss/layouts/form.scss
 `
-Esse arquivo é o que define a diagramação do component form
+This file contains the grid settings
+
 
