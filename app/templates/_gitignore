@@ -1,8 +1,13 @@
+# IDEs
 .idea/
 .sass-cache/
 .tmp/
+*sublime*
+*.TODO
+.vscode
+
+# Theme Frontend
+app/styles/
 build/
 node_modules/
-app/styles/
-bower_components/*/*
-wordpress/
+bower_components/

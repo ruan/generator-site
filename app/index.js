@@ -60,6 +60,7 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
     copyMainFiles: function(){
         this.copy("_gitignore", ".gitignore");
         this.bulkCopy("_gruntfile.js", "Gruntfile.js");
+        this.bulkCopy("editorconfig", ".editorconfig");
         this.copy("_htaccess", "app/.htaccess");
         this.copy("_index.php", "app/index.php");
         this.copy("_home.php", "app/paginas/home/home.php");
@@ -96,6 +97,7 @@ var CappenSiteGenerator = yeoman.generators.Base.extend({
         this.template("_index.php", "app/index.php", context);
         this.template("_bower.json", "bower.json", context);
         this.template("_package.json", "package.json", context);
+        this.template("README.md", "README.md", context);
     },
     installPlugins: function(){
         this.bowerInstall(this.plugins,{save:true});
