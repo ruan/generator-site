@@ -3,13 +3,10 @@
 
 ## Requirements:
 
-NodeJS (https://nodejs.org/)
-
-GruntJS (http://gruntjs.com/)
-
-Yeoman (http://yeoman.io/)
-
-Bower (http://bower.io/)
+* NodeJS (https://nodejs.org/)
+* GruntJS (http://gruntjs.com/)
+* Yeoman (http://yeoman.io/)
+* Bower (http://bower.io/)
 
 ## Installation
 
