@@ -1,4 +1,4 @@
-# Generator Cappen Site [![Build Status](https://secure.travis-ci.org/ruan/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruan/generator-cappen-site)
+# Generator Site [![Build Status](https://secure.travis-ci.org/ruan/generator-cappen-site.png?branch=master)](https://travis-ci.org/ruan/generator-cappen-site)
 
 
 ## Requirements:
